@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        //HARBOR_CREDS = credentials('harbor_creds')
+        HARBOR_CREDS = credentials('harbor_creds')
         HARBOR_DOCKER_REPO = '192.168.100.17:80'
     }
 
