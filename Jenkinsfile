@@ -38,7 +38,7 @@ pipeline {
         stage('Docker Build') {
             steps {
                 echo 'Building Docker Image'
-                sh "docker build -t $HARBOR_DOCKER_REPO/mta/maven-web-app:${BUILD_NUMBER} ."
+                sh "docker build -t ${HARBOR_DOCKER_REPO}/mta/maven-web-app:${BUILD_NUMBER} ."
             }
         }
 
@@ -47,7 +47,7 @@ pipeline {
                 echo 'Harbor Docker Repository Login'
                 script {
                     withCredentials([usernamePassword(credentialsId: 'Harbor_creds', usernameVariable: 'admin', passwordVariable: 'PASS')]) {
-                        sh "echo $PASS | docker login -u $admin --password-stdin $HARBOR_DOCKER_REPO"
+                        sh "echo ${PASS} | docker login -u ${admin} --password-stdin ${HARBOR_DOCKER_REPO}"
                     }
                 }
             }
@@ -56,17 +56,17 @@ pipeline {
         stage('Docker Push') {
             steps {
                 echo 'Pushing Image to Docker Repository'
-                sh "docker push $HARBOR_DOCKER_REPO/mta/maven-web-app:${BUILD_NUMBER}"
+                sh "docker push ${HARBOR_DOCKER_REPO}/mta/maven-web-app:${BUILD_NUMBER}"
             }
         }
 
         stage('Docker Pull and Run') {
             steps {
                 echo 'Pulling Image from Docker Repository'
-                sh "docker pull $HARBOR_DOCKER_REPO/maven-web-app:${BUILD_NUMBER}"
+                sh "docker pull ${HARBOR_DOCKER_REPO}/maven-web-app:${BUILD_NUMBER}"
 
                 echo 'Running Docker Container'
-                sh "docker run -d -p 80:8085 --name new-app $HARBOR_DOCKER_REPO/maven-web-app:${BUILD_NUMBER}"
+                sh "docker run -d -p 80:8085 --name new-app ${HARBOR_DOCKER_REPO}/maven-web-app:${BUILD_NUMBER}"
             }
         }
     }
