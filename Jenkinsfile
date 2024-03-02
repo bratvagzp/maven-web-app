@@ -7,21 +7,13 @@ pipeline {
     }
 
     stages {
-              // stage('Clone Repository') {
-            //steps {
-              //  git 'https://github.com/bratvagzp/maven-web-app.git'
-           // }
-        //}
-        
-        stage('build')
-    steps {
-        
-            script {
-                sh 'mvn clean install'
+        stage('Build') {
+            steps {
+                script {
+                    sh 'mvn clean install'
+                }
             }
-        
-    }
-}
+        }
 
         stage('Publish to Nexus') {
             steps {
@@ -76,5 +68,5 @@ pipeline {
                 sh "docker run -d -p 80:8085 --name new-app $HARBOR_DOCKER_REPO/maven-web-app:${BUILD_NUMBER}"
             }
         }
-    
+    }
 }
