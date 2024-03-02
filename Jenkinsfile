@@ -18,7 +18,7 @@ pipeline {
         stage('Publish to Nexus') {
             steps {
                 script {
-                    nexusArtifactUploader(
+                    harborArtifactUploader(
                         artifacts: [
                             [artifactId: 'maven-web-app', classifier: '', file: 'target/maven-web-app.war', type: 'war']
                         ],
