@@ -18,7 +18,7 @@ pipeline {
         PATH= "/usr/local/apache-maven/apache-maven-3.8.7/bin:${PATH}"
     }
     steps {
-        dir('gs-maven/complete') {
+        //dir('gs-maven/complete') {
             script {
                 sh 'mvn clean install'
             }
