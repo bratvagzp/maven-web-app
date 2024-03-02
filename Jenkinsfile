@@ -7,11 +7,11 @@ pipeline {
     }
 
     stages {
-               stage('Clone Repository') {
-            steps {
-                git 'https://github.com/bratvagzp/maven-web-app.git'
-            }
-        }
+              // stage('Clone Repository') {
+            //steps {
+              //  git 'https://github.com/bratvagzp/maven-web-app.git'
+           // }
+        //}
         
         stage('build')
     steps {
