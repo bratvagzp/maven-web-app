@@ -25,7 +25,7 @@ pipeline {
                         credentialsId: 'harbor_creds',
                         //groupId: 'sreegroup',
                         harborUrl: '192.168.100.17:80',
-                        harborVersion: '',
+                        //harborVersion: '',
                         protocol: 'http',
                         repository: 'mta',
                         //version: '1.0-SNAPSHOT'
