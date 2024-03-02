@@ -16,24 +16,24 @@ pipeline {
             }
         }
 
-        stage('Publish to Nexus') {
-            steps {
-                script {
-                    harborArtifactUploader(
-                        artifacts: [
-                            [artifactId: 'maven-web-app', classifier: '', file: 'target/maven-web-app.war', type: 'war']
-                        ],
-                        credentialsId: 'harbor_creds',
+       // stage('Publish to Nexus') {
+          //  steps {
+             //   script {
+             //       harborArtifactUploader(
+               //         artifacts: [
+               //             [artifactId: 'maven-web-app', classifier: '', file: 'target/maven-web-app.war', type: 'war']
+               //         ],
+               //         credentialsId: 'harbor_creds',
                         //groupId: 'sreegroup',
-                        harborUrl: '192.168.100.17:80',
+                  //      harborUrl: '192.168.100.17:80',
                         //harborVersion: '',
-                        protocol: 'http',
-                        repository: 'mta',
+                    //    protocol: 'http',
+                     //   repository: 'mta',
                         //version: '1.0-SNAPSHOT'
-                    )
-                }
-            }
-        }
+                   // )
+                //}
+          //  }
+        //}
 
         stage('Docker Build') {
             steps {
