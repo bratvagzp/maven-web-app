@@ -8,8 +8,8 @@ ENV JAVA_HOME /usr/lib/jvm/java-11-openjdk-amd64
 #ENV JRE_HOME /usr/lib/jvm/java-11-openjdk-amd64/jre
 RUN wget https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.85/bin/apache-tomcat-9.0.85.zip \
     && unzip apache-tomcat-9.0.85.zip \
-    && mv apache-tomcat-9.0.85.zip /usr/local/tomcat \
-    && apache-tomcat-9.0.85.zip \
+    && mv apache-tomcat-9.0.85 /usr/local/tomcat \
+    && rm apache-tomcat-9.0.85.zip \
     && chmod +x -R /usr/local/tomcat/bin/*.sh
 
 EXPOSE 8080
