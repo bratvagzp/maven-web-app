@@ -14,9 +14,9 @@ pipeline {
         }
         
         stage('build') {
-    environment {
-        PATH= "/usr/local/apache-maven/apache-maven-3.8.7/bin:${PATH}"
-    }
+   // environment {
+     //   PATH= "/usr/local/apache-maven/apache-maven-3.8.7/bin:${PATH}"
+    //}
     steps {
         //dir('gs-maven/complete') {
             script {
