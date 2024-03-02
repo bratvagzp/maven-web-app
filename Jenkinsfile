@@ -7,22 +7,24 @@ pipeline {
     }
 
     stages {
-        //stage('Clone Repository') {
-          //  steps {
-            //    git 'https://github.com/Manojrajbhar1/maven-web-app.git'
-            }
-        }
-
-        stage('Maven Build') {
+                stage('git clone') {
             steps {
-                script {
-                   //# def mavenHome = tool name: 'maven 3.9.6', type: 'maven'
-                    //def mavenCMD = "${mavenHome}/bin/mvn"
-                    //sh "${mavenCMD} clean package"
-                    sh "mvn  clean install"
-                }
+                sh 'git clone https://github.com/spring-guides/gs-maven.git'
             }
         }
+        
+        stage('build') {
+    environment {
+        PATH= "/usr/local/apache-maven/apache-maven-3.8.7/bin:${PATH}"
+    }
+    steps {
+        dir('gs-maven/complete') {
+            script {
+                sh 'mvn clean install'
+            }
+        }
+    }
+}
 
         stage('Publish to Nexus') {
             steps {
