@@ -63,10 +63,10 @@ pipeline {
         stage('Docker Pull and Run') {
             steps {
                 echo 'Pulling Image from Docker Repository'
-                sh "docker pull ${HARBOR_DOCKER_REPO}/maven-web-app:${BUILD_NUMBER}"
+                sh "docker pull ${HARBOR_DOCKER_REPO}/mta/maven-web-app:${BUILD_NUMBER}"
 
                 echo 'Running Docker Container'
-                sh "docker run -d -p 80:8085 --name new-app ${HARBOR_DOCKER_REPO}/maven-web-app:${BUILD_NUMBER}"
+                sh "docker run -d -p 80:8085 --name new-app ${HARBOR_DOCKER_REPO}/mta/maven-web-app:${BUILD_NUMBER}"
             }
         }
     }
