@@ -11,6 +11,7 @@ pipeline {
             steps {
                 script {
                     sh 'mvn clean install'
+                    archiveArtifacts artifacts: 'target/*', fingerprint: true
                 }
             }
         }
