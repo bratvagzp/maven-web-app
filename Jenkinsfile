@@ -9,7 +9,7 @@ pipeline {
     stages {
                 stage('git clone') {
             steps {
-                sh 'git clone https://github.com/spring-guides/gs-maven.git'
+                sh 'https://github.com/bratvagzp/maven-web-app.git'
             }
         }
         
