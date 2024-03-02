@@ -46,7 +46,7 @@ pipeline {
             steps {
                 echo 'Harbor Docker Repository Login'
                 script {
-                    withCredentials([usernamePassword(credentialsId: 'Harbor_creds', usernameVariable: 'admin', passwordVariable: 'PASS')]) {
+                    withCredentials([usernamePassword(credentialsId: '7307b316-9332-493f-918e-e072fcb60be7', usernameVariable: 'admin', passwordVariable: 'PASS')]) {
                         sh "echo ${PASS} | docker login -u ${admin} --password-stdin ${HARBOR_DOCKER_REPO}"
                     }
                 }
