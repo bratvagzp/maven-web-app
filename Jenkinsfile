@@ -13,16 +13,13 @@ pipeline {
             }
         }
         
-        stage('build') {
-   // environment {
-     //   PATH= "/usr/local/apache-maven/apache-maven-3.8.7/bin:${PATH}"
-    //}
+        stage('build')
     steps {
-        //dir('gs-maven/complete') {
+        
             script {
                 sh 'mvn clean install'
             }
-        }
+        
     }
 }
 
