@@ -7,9 +7,9 @@ pipeline {
     }
 
     stages {
-        stage('Clone Repository') {
-            steps {
-                git 'https://github.com/Manojrajbhar1/maven-web-app.git'
+        //stage('Clone Repository') {
+          //  steps {
+            //    git 'https://github.com/Manojrajbhar1/maven-web-app.git'
             }
         }
 
